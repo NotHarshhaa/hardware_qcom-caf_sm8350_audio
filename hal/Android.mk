@@ -281,6 +281,12 @@ ifeq ($(strip $(AUDIO_FEATURE_ENABLED_SOFT_VOLUME)),true)
     LOCAL_CFLAGS += -DSOFT_VOLUME
 endif
 
+# audio tfa98xx amplifier
+ifeq ($(strip $(AUDIO_FEATURE_ENABLED_TFA98XX_AMPLIFIER)),true)
+	LOCAL_CFLAGS += -DTFA98XX_ENABLED
+	LOCAL_SRC_FILES += audio_extn/tfa98xx_feedback.c
+endif
+
 # Hardware specific feature
 ifeq ($(strip $(AUDIO_FEATURE_ENABLED_QAP)),true)
 LOCAL_CFLAGS += -DQAP_EXTN_ENABLED -Wno-tautological-pointer-compare
